@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://nodejs.org/en/download/"><img src="https://img.shields.io/badge/node-%3E%3D%206.0.0-brightgreen?style=plastic" alt="NodeJS version"></a>
-    <img src="https://img.shields.io/github/workflow/status/raftheunis87/tradingview-to-telegram-webhook-bot/Node.js%20CI/main">
+    <img src="https://img.shields.io/github/workflow/status/raftheunis87/tradingview-to-telegram-webhook-bot/Node.js%20CI/main?style=plastic">
     <a href="https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/issues"><img src="https://img.shields.io/github/issues/raftheunis87/tradingview-to-telegram-webhook-bot?style=plastic" alt="GitHub issues"></a>
     <a href="https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/pulls"><img src="https://img.shields.io/github/issues-pr/raftheunis87/tradingview-to-telegram-webhook-bot?style=plastic" alt="GitHub pull requests"></a>
     <br /><a href="https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/stargazers"><img src="https://img.shields.io/github/stars/raftheunis87/tradingview-to-telegram-webhook-bot?style=social" alt="GitHub stars"></a>
