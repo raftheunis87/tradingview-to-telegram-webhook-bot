@@ -24,7 +24,7 @@
 
 ## About
 The **TradingView To Telegram Webhook Bot** listens to [TradingView](https://tradingview.com) alerts via [webhooks](https://www.tradingview.com/support/solutions/43000529348-i-want-to-know-more-about-webhooks/) using [NestJS](https://nestjs.com/).
-All alerts can be instantly sent to Telegram.
+All alerts can be instantly sent to [Telegram](https://telegram.org/).
 
 ## Features
 - Telegram Support using the [NestJS Telegram](https://github.com/jmcdo29/nestjs-telegram) libary
