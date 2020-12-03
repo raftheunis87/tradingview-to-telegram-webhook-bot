@@ -41,7 +41,7 @@ All alerts can be instantly sent to [Telegram](https://telegram.org/).
     - `TELEGRAM_BOT_TOKEN` is the token you receive after creating a bot with the BotFather
     - `TELEGRAM_CHAT_ID` is the id of the telegram group or channel in which the bot will give the TradingView alerts. 
 
-    More information on how to set environment variables for you specific os can be found [here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
+    More information on how to set environment variables for your specific os can be found [here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
 1. Setup TradingView alerts as shown [here](https://i.imgur.com/71UYTcu.png)
     - TradingViews variables like `{{exchange}}`, `{{ticker}}` etc. work as well. More can be found [here](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/)
     - Your webhook url would be `http://<YOUR-IP>/bot/v1/alerts`
