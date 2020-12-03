@@ -8,7 +8,6 @@ import {
 } from 'nestjs-telegram/dist/interfaces/telegramTypes.interface';
 import { of, throwError } from 'rxjs';
 import { AlertsService } from './alerts.service';
-import { CreateAlertDto } from './dto/create-alert.dto';
 
 const TELEGRAM_CHAT_ID = 'telegram_chat_id';
 
@@ -48,11 +47,12 @@ describe('AlertsService', () => {
   });
 
   describe('process', () => {
-    const createAlertDto: CreateAlertDto = {
-      exchange: 'BINANCE',
-      ticker: 'BTCUSDT',
-      action: 'SELL',
-    };
+    const message = `
+    Buy Alert!
+
+    Exchange: BINANCE
+    Pair: BTCUSDT
+    Price: 20000`;
 
     const telegramResponse: TelegramMessage = {
       message_id: 1,
@@ -69,7 +69,7 @@ describe('AlertsService', () => {
         all_members_are_administrators: true,
       },
       date: 1111111111,
-      text: 'Received a SELL alert for BTCUSDT on BINANCE!',
+      text: message,
       entities: [
         { offset: 11, length: 4, type: 'bold' },
         { offset: 26, length: 7, type: 'bold' },
@@ -93,14 +93,14 @@ describe('AlertsService', () => {
       expect(telegramService.sendMessage).not.toHaveBeenCalled();
 
       await alertsService
-        .process(createAlertDto)
+        .process(message)
         .toPromise()
         .catch((err) => {
           expect(telegramService.sendMessage).toHaveBeenCalledTimes(1);
           expect(telegramService.sendMessage).toHaveBeenCalledWith({
             chat_id: TELEGRAM_CHAT_ID,
-            parse_mode: 'markdown',
-            text: 'Received a *SELL* alert for *BTCUSDT* on *BINANCE*!',
+            parse_mode: 'html',
+            text: message,
           });
           expect(err).toBeInstanceOf(HttpException);
           expect(err.status).toBe(400);
@@ -113,14 +113,14 @@ describe('AlertsService', () => {
       expect(telegramService.sendMessage).not.toHaveBeenCalled();
 
       await alertsService
-        .process(createAlertDto)
+        .process(message)
         .toPromise()
         .then((result) => {
           expect(telegramService.sendMessage).toHaveBeenCalledTimes(1);
           expect(telegramService.sendMessage).toHaveBeenCalledWith({
             chat_id: TELEGRAM_CHAT_ID,
-            parse_mode: 'markdown',
-            text: 'Received a *SELL* alert for *BTCUSDT* on *BINANCE*!',
+            parse_mode: 'html',
+            text: message,
           });
           expect(result).toEqual(telegramResponse);
           done();

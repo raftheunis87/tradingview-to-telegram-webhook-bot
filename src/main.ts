@@ -2,12 +2,12 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
   const app = await NestFactory.create(AppModule);
-
-  const port = app.get('ConfigService').get('app.port');
+  app.use(bodyParser.text());
 
   // swagger
   const options = new DocumentBuilder()
@@ -21,6 +21,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 
+  const port = app.get('ConfigService').get('app.port');
   await app.listen(port);
   logger.log(
     `tradingview-to-telegram-webhook-bot listening on port '${port}'...`,

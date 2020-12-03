@@ -7,7 +7,6 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TelegramService } from 'nestjs-telegram';
-import { CreateAlertDto } from './dto/create-alert.dto';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { TelegramMessage } from 'nestjs-telegram/dist/interfaces/telegramTypes.interface';
@@ -21,12 +20,12 @@ export class AlertsService {
     private readonly configService: ConfigService,
   ) {}
 
-  process(createAlertDto: CreateAlertDto): Observable<TelegramMessage> {
+  process(message: string): Observable<TelegramMessage> {
     return this.telegramService
       .sendMessage({
         chat_id: this.configService.get<string>('telegram.chatId'),
-        text: this.getText(createAlertDto),
-        parse_mode: 'markdown',
+        text: message,
+        parse_mode: 'html',
       })
       .pipe(
         map((res) => {
@@ -39,10 +38,6 @@ export class AlertsService {
           return this.processError(err);
         }),
       );
-  }
-
-  private getText(createAlertDto: CreateAlertDto): string {
-    return `Received a *${createAlertDto.action}* alert for *${createAlertDto.ticker}* on *${createAlertDto.exchange}*!`;
   }
 
   private processError(err: any): Observable<never> {
