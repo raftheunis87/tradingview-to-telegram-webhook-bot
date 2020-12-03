@@ -25,5 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: yarn install and test
-    - run: yarn install --no-progress --frozen-lockfile --non-interactive
-    - run: yarn test && yarn test:e2e
+      run: |
+        yarn install --no-progress --frozen-lockfile --non-interactive
+        yarn test && yarn test:e2e
