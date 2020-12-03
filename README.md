@@ -29,7 +29,6 @@ All alerts can be instantly sent to Telegram.
 ## Features
 - Telegram Support using the [NestJS Telegram](https://github.com/jmcdo29/nestjs-telegram) libary
 - TradingView `{{exchange}}`, `{{ticker}}` etc. variables support. Read more [here](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/)
-- Swagger documentation
 
 > 💡 Got a feature idea? Open an [issue](https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/issues/new) and I might implement it.
 
@@ -43,28 +42,18 @@ All alerts can be instantly sent to Telegram.
     - `TELEGRAM_CHAT_ID` is the id of the telegram group or channel in which the bot will give the TradingView alerts. 
 
     More information on how to set environment variables for you specific os can be found [here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
-1. Setup TradingView alerts as shown [here](https://i.imgur.com/Yl4Q9Ht.png)
+1. Setup TradingView alerts as shown [here](https://i.imgur.com/71UYTcu.png)
     - TradingViews variables like `{{exchange}}`, `{{ticker}}` etc. work as well. More can be found [here](https://www.tradingview.com/blog/en/introducing-variables-in-alerts-14880/)
     - Your webhook url would be `http://<YOUR-IP>/bot/v1/alerts`
 1. If you use a firewall be sure to open port the corresponding port
 1. Run the bot `npm run build && npm run start:prod`
-1. You can access the Swagger documentation on `http://localhost:4000/api/`
-
-Currently, you can only use the following alert message in your TradingView alert:
-
-```
-{
-    "exchange": {{exchange}},
-    "ticker": {{ticker},
-    "action": "BUY" or "SELL"
-}
-```
-
-This will result in the following outcome on Telegram:
-```
-Received a SELL alert for BTCUSDT on BINANCE!
-```
-
-If the message has other fields, the request will not be accepted by the webhook bot.
 
 *This application will run at port 4000 by default. It is then necessary to forward port 80 to 4000. If you want to run this on a different port, you can set a `PORT` environment variable with the port number of your own choice.*
+
+## How can I help?
+All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/issues/new). You can also buy me some [☕️ coffee](https://www.buymeacoffee.com/rt87) to help keep me productive! You can also sent me some crypto to the following addresses:
+
+- BTC: 16RvXgVz8DAtrC5J3tTC5TPmoUVzctzN3C
+- ETH: 0x55d1d279e20be28a1cebe48eaa879c80e7fbc3a9
+
+Thanks again for your support, it is much appreciated! 🙏
