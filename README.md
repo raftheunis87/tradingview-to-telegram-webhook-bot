@@ -33,7 +33,7 @@ All alerts can be instantly sent to [Telegram](https://telegram.org/).
 > 💡 Got a feature idea? Open an [issue](https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot/issues/new) and I might implement it.
 
 ## Installation
-> ⚠️ Best to run the bot on a VPS. I can recommend [VirMach](https://virmach.com/).
+> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://hetzner.cloud/?ref=lDD7z7LALHNr).
 1. Install [NodeJS](https://nodejs.org/en/download/)
 1. Clone this repository `git clone https://github.com/raftheunis87/tradingview-to-telegram-webhook-bot.git`
 1. Install all requirements `npm install`
